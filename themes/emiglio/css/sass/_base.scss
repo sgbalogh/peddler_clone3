@@ -1,0 +1,30 @@
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/typography";
+@import "compass/layout/grid-background";
+
+// Colors
+
+$gray: #ddd;
+$yellow: #A49D4C;
+$red: #843418;
+$nyuPurple: #57068c;
+// Typography
+
+$base-font-size: 14px;
+$base-line-height: 21px;
+
+header.universityBrand {
+	background-color: $nyuPurple;
+
+  background-image: url(../images/header.png);
+  background-position: 21px 21px;
+  background-repeat: no-repeat;
+ 
+  height: 70px;
+}
+header h1 {
+  text-indent: -1000em;
+  margin-bottom: 0;
+}
+
