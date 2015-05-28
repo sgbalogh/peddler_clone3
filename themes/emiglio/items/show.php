@@ -1,3 +1,10 @@
+<style>
+#columned { 
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+}
+</style>
 <?php echo head(array('title' => metadata($item, array('Dublin Core', 'Title')), 'bodyclass' => 'items show')); ?>
 
 <h1><?php echo metadata($item, array('Dublin Core', 'Title')); ?></h1>
@@ -14,9 +21,14 @@
 <?php if (metadata('item', array('Dublin Core', 'Spatial Coverage'))): ?>
 <h2>Locations</h2>
 <?php endif; ?>
-<?php echo metadata('item', array('Dublin Core', 'Coverage')); ?>
+<div id="columned">
 <?php echo metadata('item', array('Dublin Core', 'Spatial Coverage'), array('delimiter' => '<br>')); ?>
+</div>
 <br><br>
+<?php echo metadata('item', array('Dublin Core', 'Coverage')); ?>
+
+<br><br>
+
 <?php if (metadata('item', array('Dublin Core', 'Temporal Coverage'))): ?>
 <h2>Time Period</h2>
 <?php endif; ?>
@@ -32,13 +44,41 @@
 <?php endif; ?>
 <?php echo metadata('item', array('Zotero', 'Author'), array('delimiter' => '; ')); ?>
 
+<?php if (metadata('item', array('Zotero', 'Editor'))): ?>
+<h2>Editor</h2>
+<?php endif; ?>
+<?php echo metadata('item', array('Zotero', 'Editor'), array('delimiter' => '; ')); ?>
+
 <?php if (metadata('item', array('Zotero', 'Item Type'))): ?>
 <h2>Type of Resource</h2>
 <?php endif; ?>
 <?php echo metadata('item', array('Zotero', 'Item Type'), array('delimiter' => '; ')); ?>
 
+<?php if (metadata('item', array('Zotero', 'Publication Title'))): ?>
+<h2>Publication Title</h2>
+<?php endif; ?>
+<?php echo metadata('item', array('Zotero', 'Publication Title'), array('delimiter' => '; ')); ?>
+
+<?php if (metadata('item', array('Zotero', 'URL'))): ?>
+<h2>URL</h2>
+<?php $url = metadata('item', array('Zotero', 'URL'), array('delimiter' => '; ')); ?>
+<?php echo "<a href=\"".$url."\">" ?>
+<?php echo metadata('item', array('Zotero', 'URL'), array('delimiter' => '; ')); ?>
+<?php echo "</a>" ?>
+<?php endif; ?>
+
+<?php if (metadata('item', array('Zotero', 'Archive Location'))): ?>
+<h2>Archive</h2>
+<?php endif; ?>
+<?php echo metadata('item', array('Zotero', 'Archive Location'), array('delimiter' => '; ')); ?>
+
+<?php if (metadata('item', array('Zotero', 'Pages'))): ?>
+<h2>Pages</h2>
+<?php endif; ?>
+<?php echo metadata('item', array('Zotero', 'Pages'), array('delimiter' => '; ')); ?>
+
 <?php if (metadata('item', array('Zotero', 'Date'))): ?>
-<h2>Date of Resource Creation</h2>
+<h2>Date of Creation</h2>
 <?php endif; ?>
 <?php echo metadata('item', array('Zotero', 'Date'), array('delimiter' => '; ')); ?>
 
@@ -57,7 +97,15 @@
 <?php endif; ?>
 <?php echo metadata('item', array('Zotero', 'Place'), array('delimiter' => '; ')); ?>
 
-<br>
+<?php if (metadata('item', array('Zotero', 'Abstract Note'))): ?>
+<h2>Abstract</h2>
+<?php endif; ?>
+<?php echo metadata('item', array('Zotero', 'Abstract Note'), array('delimiter' => '<br><br>')); ?>
+
+<br><br><br>
+
+<h2>FOR TESTING PURPOSES:</h2><br><br>
+  <?php echo all_element_texts($item); ?>
 
     <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
 
