@@ -8,8 +8,56 @@
         <?php echo files_for_item(array('imageSize' => 'fullsize')); ?>
     </div>
     <?php endif; ?>
+<h2>Title</h2>
+<?php echo metadata('item', array('Dublin Core', 'Title')); ?>
 
-    <?php echo all_element_texts($item); ?>
+<?php if (metadata('item', array('Dublin Core', 'Spatial Coverage'))): ?>
+<h2>Locations</h2>
+<?php endif; ?>
+<?php echo metadata('item', array('Dublin Core', 'Coverage')); ?>
+<?php echo metadata('item', array('Dublin Core', 'Spatial Coverage'), array('delimiter' => '<br>')); ?>
+<br><br>
+<?php if (metadata('item', array('Dublin Core', 'Temporal Coverage'))): ?>
+<h2>Time Period</h2>
+<?php endif; ?>
+<?php echo metadata('item', array('Dublin Core', 'Temporal Coverage')); ?>
+
+<?php if (metadata('item', array('Dublin Core', 'Subject'))): ?>
+<h2>Individuals</h2>
+<?php endif; ?>
+<?php echo metadata('item', array('Dublin Core', 'Subject'), array('delimiter' => '; ')); ?>
+
+<?php if (metadata('item', array('Zotero', 'Author'))): ?>
+<h2>Author</h2>
+<?php endif; ?>
+<?php echo metadata('item', array('Zotero', 'Author'), array('delimiter' => '; ')); ?>
+
+<?php if (metadata('item', array('Zotero', 'Item Type'))): ?>
+<h2>Type of Resource</h2>
+<?php endif; ?>
+<?php echo metadata('item', array('Zotero', 'Item Type'), array('delimiter' => '; ')); ?>
+
+<?php if (metadata('item', array('Zotero', 'Date'))): ?>
+<h2>Date of Resource Creation</h2>
+<?php endif; ?>
+<?php echo metadata('item', array('Zotero', 'Date'), array('delimiter' => '; ')); ?>
+
+<?php if (metadata('item', array('Zotero', 'Language'))): ?>
+<h2>Language of Resource</h2>
+<?php endif; ?>
+<?php echo metadata('item', array('Zotero', 'Language'), array('delimiter' => '; ')); ?>
+
+<?php if (metadata('item', array('Zotero', 'Publisher'))): ?>
+<h2>Publisher</h2>
+<?php endif; ?>
+<?php echo metadata('item', array('Zotero', 'Publisher'), array('delimiter' => '; ')); ?>
+
+<?php if (metadata('item', array('Zotero', 'Place'))): ?>
+<h2>Place of Publication</h2>
+<?php endif; ?>
+<?php echo metadata('item', array('Zotero', 'Place'), array('delimiter' => '; ')); ?>
+
+<br>
 
     <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
 
