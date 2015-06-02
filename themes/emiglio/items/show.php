@@ -59,6 +59,11 @@
 <?php endif; ?>
 <?php echo metadata('item', array('Zotero', 'Publication Title'), array('delimiter' => '; ')); ?>
 
+<?php if (metadata('item', array('Zotero', 'Volume'))): ?>
+<h2>Volume</h2>
+<?php endif; ?>
+<?php echo metadata('item', array('Zotero', 'Volume'), array('delimiter' => '; ')); ?>
+
 <?php if (metadata('item', array('Zotero', 'URL'))): ?>
 <h2>URL</h2>
 <?php $url = metadata('item', array('Zotero', 'URL'), array('delimiter' => '; ')); ?>
