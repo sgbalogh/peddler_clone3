@@ -15,8 +15,13 @@
         <?php echo files_for_item(array('imageSize' => 'fullsize')); ?>
     </div>
     <?php endif; ?>
-<h2>Title</h2>
-<?php echo metadata('item', array('Dublin Core', 'Title')); ?>
+<!--<h2>Title</h2>-->
+<!--<?php echo metadata('item', array('Dublin Core', 'Title')); ?>-->
+
+<?php if (metadata('item', array('Zotero', 'Author'))): ?>
+<h2>Author</h2>
+<?php endif; ?>
+<?php echo metadata('item', array('Zotero', 'Author'), array('delimiter' => '; ')); ?>
 
 <?php if (metadata('item', array('Dublin Core', 'Spatial Coverage'))): ?>
 <h2>Locations</h2>
@@ -39,10 +44,6 @@
 <?php endif; ?>
 <?php echo metadata('item', array('Dublin Core', 'Subject'), array('delimiter' => '; ')); ?>
 
-<?php if (metadata('item', array('Zotero', 'Author'))): ?>
-<h2>Author</h2>
-<?php endif; ?>
-<?php echo metadata('item', array('Zotero', 'Author'), array('delimiter' => '; ')); ?>
 
 <?php if (metadata('item', array('Zotero', 'Editor'))): ?>
 <h2>Editor</h2>
@@ -131,10 +132,16 @@
     <!-- The following prints a list of all tags associated with the item -->
     <?php if (metadata($item, 'has tags')): ?>
     <div id="item-tags" class="element">
-        <h2>Topics (Tags)</h2>
+        <h2>Topics</h2>
         <div class="element-text tags"><?php echo tag_string('item'); ?></div>
     </div>
     <?php endif; ?>
+
+<?php if (metadata('item', array('Dublin Core', 'Subject'))): ?>
+<div id="item-tags" class="element"><h2>Individuals</h2>
+<div class="element-text tags"><?php echo metadata('item', array('Dublin Core', 'Subject'), array('delimiter' => '; ')); ?></div>
+</div>
+<?php endif; ?>
 
     <!-- If the item belongs to a collection, the following creates a link to that collection. -->
     <?php if (get_collection_for_item()): ?>

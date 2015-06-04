@@ -19,6 +19,7 @@ echo head(array('title'=>$pageTitle, 'bodyclass' => 'items browse'));
 
     <?php
     $sortLinks[__('Title')] = 'Dublin Core,Title';
+	$sortLinks[__('Resource Type')] = 'Zotero,Item Type';
     $sortLinks[__('Creator')] = 'Dublin Core,Creator';
     $sortLinks[__('Date Added')] = 'added';
     ?>
@@ -50,8 +51,14 @@ echo head(array('title'=>$pageTitle, 'bodyclass' => 'items browse'));
                 </div>
             <?php endif; ?>
 
+<?php if ($itemtype = metadata($item, array('Zotero', 'Item Type'), array('snippet'=>250))): ?>
+                <div class="item-description">
+                <p><?php echo "Item Type: ".$itemtype; ?></p>
+                </div>
+<?php endif; ?>
+
             <?php if (metadata($item, 'has tags')): ?>
-                <div class="tags"><p><strong><?php echo __('Tags'); ?>: </strong>
+                <div class="tags"><p><strong><?php echo __('Topics'); ?>: </strong>
                 <?php echo tag_string('items'); ?></p>
                 </div>
             <?php endif; ?>
