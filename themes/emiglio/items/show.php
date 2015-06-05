@@ -108,10 +108,7 @@
 <?php endif; ?>
 <?php echo metadata('item', array('Zotero', 'Abstract Note'), array('delimiter' => '<br><br>')); ?>
 
-<br><br><br>
 
-<h2>FOR TESTING PURPOSES:</h2><br><br>
-  <?php echo all_element_texts($item); ?>
 
     <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
 
