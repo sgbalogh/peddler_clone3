@@ -15,7 +15,7 @@
 <!-- Exhibit and description : -->
 <?php echo nl_getExhibitMarkup(); ?>
 <?php echo nl_getNarrativeMarkup(); ?>
-
+<div class="AdditionalCareers">Additional Careers</div>
 <!-- <div id="faceting">
       <div class="AdditionalCareers">Additional Careers</div>
   	  <div class="AntiSemiticRhetoric">Anti-Semitic Rhetoric</div>

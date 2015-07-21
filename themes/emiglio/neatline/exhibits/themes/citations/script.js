@@ -2,7 +2,7 @@ Neatline.on('start', function() {
 
 
  
-/*  var map = Neatline.request('MAP:getMap');
+  var map = Neatline.request('MAP:getMap');
  
   $('.testA').click(function() {
   	Neatline.vent.trigger('setFilter', {
@@ -14,14 +14,9 @@ Neatline.on('start', function() {
   });
   
     $('.AdditionalCareers').click(function() {
-  	Neatline.vent.trigger('setFilter', {
-  key: 'AdditionalCareers',
-  evaluator: function(record) {
-    return record.hasTag('AdditionalCareers');
-  }
-});
+  		Neatline.execute('MAP:load', { tags: ['AdditionalCareers'] });
   });
-  
+  /*
     $('.AntiSemiticRhetoric').click(function() {
   	Neatline.vent.trigger('setFilter', {
   key: 'AntiSemiticRhetoric',
