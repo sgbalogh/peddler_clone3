@@ -1,21 +1,46 @@
 Neatline.on('start', function() {
 
-
- 
-  var map = Neatline.request('MAP:getMap');
- 
-  $('.testA').click(function() {
-  	Neatline.vent.trigger('setFilter', {
-  key: 'tags',
-  evaluator: function(record) {
-    return record.hasTag('test');
-  }
-});
-  });
+  
+  var tagbox = [];
   
     $('.AdditionalCareers').click(function() {
-  		Neatline.execute('MAP:load', { tags: ['AdditionalCareers'] });
+    	tagbox.push('AdditionalCareers')
+  		console.log(tagbox);
   });
+  
+      $('.AntiSemiticRhetoric').click(function() {
+    	tagbox.push('AntiSemiticRhetoric')
+  		console.log(tagbox);
+  });
+  
+      $('.Bartering').click(function() {
+    	tagbox.push('Bartering')
+  		console.log(tagbox);
+  });
+  
+      $('.BusinessPractices').click(function() {
+    	tagbox.push('BusinessPractices')
+  		console.log(tagbox);
+  });
+  
+        $('.ConflictViolenceCommunal').click(function() {
+    	tagbox.push('ConflictViolenceCommunal')
+  		console.log(tagbox);
+  });
+  
+      $('.Query').click(function() {
+  		Neatline.execute('MAP:load', { tags: tagbox });
+  		console.log(tagbox);
+  });
+  
+        $('.Reset').click(function() {
+  		tagbox = [];
+  		console.log(tagbox);
+  });
+  
+  
+  
+  
   /*
     $('.AntiSemiticRhetoric').click(function() {
   	Neatline.vent.trigger('setFilter', {
