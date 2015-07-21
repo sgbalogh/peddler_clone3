@@ -16,16 +16,6 @@
 <?php echo nl_getExhibitMarkup(); ?>
 <?php echo nl_getNarrativeMarkup(); ?>
 
-      <div class="AdditionalCareers">Additional Careers</div>
-      <div class="AntiSemiticRhetoric">Anti-Semitic Rhetoric</div>
-  	  <div class="Bartering">Bartering</div>
-  	  <div class="BusinessPractices">Business Practices</div>
-  	  <div class="ConflictViolenceCommunal">Conflict/Violence -- Communal</div>
-  	  <br><br>
-  	  <div class="Reset">Reset</div>
-  	  <div class="Query">Query</div>
-      
-
 <!-- <div id="faceting">
       <div class="AdditionalCareers">Additional Careers</div>
   	  <div class="AntiSemiticRhetoric">Anti-Semitic Rhetoric</div>
@@ -55,7 +45,7 @@
   	  <div class="JournalArticle">Journal Article</div>
 </div>-->
 
-<!--<div class="btn-group" data-toggle="buttons">
+<div class="btn-group" data-toggle="buttons">
   <label class="btn btn-primary btn-xs">
     <input type="checkbox" name="tag" value="AdditionalCareers"> Additional Careers
   </label>
@@ -152,6 +142,9 @@
    <label class="btn btn-warning btn-xs">
     <input type="checkbox" name="filter" value="Website"> Website
   </label>
-</div>-->
+</div>
+<br><br>
+<button type="submit" name="submit" class="btn btn-default">Apply Facets</button>
+
  
 <?php echo foot(); ?>
